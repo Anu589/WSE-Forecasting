@@ -9,6 +9,10 @@ class FourierDeterministicGenerator:
         Args:
             freq: Frequency for CalendarFourier ('A' for annual, 'M' for monthly).
             order: Number of Fourier harmonics.
+
+
+
+
             add_constant: Whether to add intercept.
             add_trend: Whether to add linear trend.
         """
@@ -18,7 +22,7 @@ class FourierDeterministicGenerator:
         self.add_trend = add_trend
         self.dp = None  # Will hold the fitted DeterministicProcess
 
-    def generate(self, train_index, test_steps):
+    def generate(self, train_index, test_steps): ## This is the generate funtion
         fourier = CalendarFourier(freq=self.freq, order=self.order)
         self.dp = DeterministicProcess(
             index=train_index,
